@@ -1,0 +1,10 @@
+@import './theme/dark.theme.scss';
+@import './theme/toolbar.scss';
+@import './theme/main.scss';
+@import 'highlight.js/styles/github-dark.css';
+
+.squad-editor {
+  &:fullscreen::backdrop {
+    background-color: $background-color;
+  }
+}

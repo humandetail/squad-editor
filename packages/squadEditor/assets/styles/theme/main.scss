@@ -1,0 +1,66 @@
+.squad-editor-main-wrapper {
+  display: flex;
+  border: 1px solid $border-color;
+  margin-top: 8px;
+  background-color: $background-color;
+
+  .squad-editor-input-wrapper,
+  .squad-editor-preview-wrapper,
+  .squad-editor__editor {
+    box-sizing: border-box;
+    background-color: $background-color;
+  }
+
+  .squad-editor-input-wrapper {
+    flex: 1;
+    position: relative;
+    height: auto;
+
+    .squad-editor__editor {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 16px;
+      resize: none;
+      outline: none;
+      border: none;
+      font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+      color: $primary-text;
+      font-size: 16px;
+      line-height: 32px;
+      scrollbar-gutter: stable;
+    }
+
+    .btn-collapse {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      
+      svg {
+        line-height: 1;
+        fill: rgba($color: $primary-text, $alpha: .5);
+      }
+    }
+  }
+
+  .squad-editor-preview-wrapper {
+    width: 50%;
+    min-width: 0;
+    padding: 16px;
+    border-left: 1px solid $border-color;
+    overflow: hidden auto;
+    // transition: width .3s ease-in-out;
+    color: $primary-text;
+
+    &.collapsed {
+      padding: 0;
+      border: 0;
+
+      * { display: none }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import './theme/default.theme.scss';
+@import './theme/toolbar.scss';
+@import './theme/main.scss';
+@import 'highlight.js/styles/github.css';
+
+.squad-editor {
+  &:fullscreen::backdrop {
+    background-color: $background-color;
+  }
+}

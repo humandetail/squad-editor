@@ -1,29 +1,85 @@
 {
   "name": "squad-editor",
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.1",
+  "author": "humandetail",
+  "description": "A Vue3 markdown editor component",
+  "keywords": [
+    "Vue",
+    "Vue3",
+    "markdown",
+    "edtior",
+    "component",
+    "typescript"
+  ],
+  "homepage": "https://github.com/humandetail/squad-editor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/humandetail/squad-editor"
+  },
+  "bugs": {
+    "url": "https://github.com/humandetail/squad-editor/issues",
+    "email": "512412344@qq.com"
+  },
+  "license": "MIT",
+  "main": "dist/squad-editor.umd.js",
+  "module": "dist/squad-editor.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/squad-editor.es.js",
+      "require": "./dist/squad-editor.umd.js"
+    }
+  },
+  "unpkg": "./dist/squad-editor.umd.js",
+  "jsdelivr": "./dist/squad-editor.umd.js",
+  "types": "squad-editor.d.ts",
+  "files": [
+    "dist/*",
+    "squad-editor.d.ts"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "yarn build:main && yarn build:css && yarn build:clear",
+    "build:main": "vue-tsc --noEmit && vite build",
+    "build:css": "sass packages/squadEditor/assets/styles/index.scss:dist/styles/index.css packages/squadEditor/assets/styles/dark.scss:dist/styles/dark.css --no-source-map",
+    "build:clear": "rm dist/favicon.ico dist/style.css",
+    "build:types": "tsc packages/index.ts --declaration --emitDeclarationOnly --jsx react --esModuleInterop --outDir dist/",
     "serve": "vite preview",
     "prepare": "husky install",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.15.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-vue": "^8.5.0",
+    "@types/markdown-it": "^12.2.3",
+    "@vueuse/core": "^8.0.1",
+    "highlight.js": "^11.4.0",
+    "lodash.throttle": "^4.1.1",
+    "markdown-it": "^12.3.2",
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-anchor": "^8.4.1",
+    "markdown-it-container": "^3.0.0",
+    "markdown-it-deflist": "^2.1.0",
+    "markdown-it-emoji": "^2.0.0",
+    "markdown-it-footnote": "^3.0.3",
+    "markdown-it-graphviz": "^1.1.2",
+    "markdown-it-ins": "^3.0.1",
+    "markdown-it-latex": "^0.2.0",
+    "markdown-it-mark": "^3.0.1",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "markdown-it-toc-done-right": "^4.2.0",
+    "uslug": "^1.0.4",
     "vue": "^3.2.16"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
+    "@types/lodash.throttle": "^4.1.6",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
     "@vitejs/plugin-vue": "^2.2.4",
-    "@vue/test-utils": "^2.0.0-rc.17",
+    "@vue/test-utils": "^2.0.0-rc.18",
     "c8": "^7.11.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
@@ -39,6 +95,7 @@
     "husky": "^7.0.0",
     "lint-staged": "^12.3.6",
     "sass": "^1.49.9",
+    "tslib": "^2.3.1",
     "typescript": "^4.4.3",
     "vite": "^2.6.4",
     "vitest": "^0.6.1",
