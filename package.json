@@ -28,6 +28,14 @@
     ".": {
       "import": "./dist/squad-editor.es.js",
       "require": "./dist/squad-editor.umd.js"
+    },
+    "./styles/index.css": {
+      "import": "./dist/styles/index.css",
+      "require": "./dist/styles/index.css"
+    },
+    "./styles/dark.css": {
+      "import": "./dist/styles/dark.css",
+      "require": "./dist/styles/dark.css"
     }
   },
   "unpkg": "./dist/squad-editor.umd.js",
