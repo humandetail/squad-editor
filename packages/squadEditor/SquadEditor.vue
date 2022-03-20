@@ -28,6 +28,17 @@ import { isCtrlKeyDown } from './utils/tools';
 import ToolbarWrapper from './components/toolbar/index.vue';
 import EditorWrapper from './components/editor/index.vue';
 
+import {
+  isCollapsedKey,
+  setIsCollapseKey,
+  inputValueKey,
+  setInputValueKey,
+  selectionKey,
+  setSelectionKey,
+  handleKeyDownKey,
+  handlePasteKey
+} from './config/provideKeys'
+
 import { FileUploadActionType, SelectionModeType, SelectionType } from './types';
 
 const props = withDefaults(defineProps<{
@@ -153,17 +164,17 @@ onMounted(() => {
   linkedScroll();
 });
 
-provide<Ref<boolean>>('isCollapsed', readonly(isCollapsed));
-provide<(value: boolean) => void>('setIsCollapsed', setIsCollapsed);
+provide(isCollapsedKey, isCollapsed);
+provide(setIsCollapseKey, setIsCollapsed);
 
-provide<Ref<string>>('inputValue', readonly(inputValue));
-provide<(value: string) => void>('setInputValue', handleChangeInputValue);
+provide(inputValueKey, inputValue);
+provide(setInputValueKey, handleChangeInputValue);
 
-provide<Ref<SelectionType>>('selection', selection);
-provide<(value: SelectionType) => void>('setSelection', setSelection);
+provide(selectionKey, selection);
+provide(setSelectionKey, setSelection);
 
-provide<(e: KeyboardEvent) => void>('handleKeyDown', handleKeyDown);
-provide<(e: ClipboardEvent) => void>('handlePaste', handlePaste);
+provide(handleKeyDownKey, handleKeyDown);
+provide(handlePasteKey, handlePaste);
 
 // eslint-disable-next-line no-undef
 defineExpose<{replaceValue:(replacement: string, selectMode?: SelectionModeType, selection?: SelectionType) => void; }>({

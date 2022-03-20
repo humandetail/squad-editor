@@ -24,20 +24,30 @@
 
 <script setup lang="ts">
 import { computed, inject, nextTick, ref, Ref } from 'vue';
+import {
+  isCollapsedKey,
+  setIsCollapseKey,
+  inputValueKey,
+  setInputValueKey,
+  selectionKey,
+  setSelectionKey,
+  handleKeyDownKey,
+  handlePasteKey
+} from '../../../config/provideKeys'
 
 const editor = ref<HTMLTextAreaElement>();
 
-const isCollapsed = inject<Ref<boolean>>('isCollapsed', ref(false));
-const setIsCollapsed = inject('setIsCollapsed', (_val: boolean) => {});
+const isCollapsed = inject(isCollapsedKey, ref(false));
+const setIsCollapsed = inject(setIsCollapseKey, (_val: boolean) => {});
 
-const inputValue = inject<Ref<string>>('inputValue', ref(''));
-const setInputValue = inject('setInputValue', (_val: string) => {});
+const inputValue = inject(inputValueKey, ref(''));
+const setInputValue = inject(setInputValueKey, (_val: string) => {});
 
-const selection = inject<Ref<[number, number]>>('selection', ref<[number, number]>([0, 0]));
-const setSelection = inject('setSelection', (_val: [number, number]) => {});
+const selection = inject(selectionKey, ref<[number, number]>([0, 0]));
+const setSelection = inject(setSelectionKey, (_val: [number, number]) => {});
 
-const handleKeyDown = inject('handleKeyDown', (val: KeyboardEvent) => {});
-const handlePaste = inject('handlePaste', (_val: ClipboardEvent) => {})
+const handleKeyDown = inject(handleKeyDownKey, (_val: KeyboardEvent) => {});
+const handlePaste = inject(handlePasteKey, (_val: ClipboardEvent) => {})
 
 const collapsedIcon = computed(() => {
   return !isCollapsed.value
