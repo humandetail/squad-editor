@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 import { ref } from 'vue';
 import PreviewWrapper from '../components/editor/preview/index.vue';
+import { isCollapsedKey, inputValueKey } from '../config/provideKeys';
 
 describe('preview wrapper', async () => {
   it('Wrapper is truthy', () => {
@@ -12,7 +13,7 @@ describe('preview wrapper', async () => {
     const wrapper = mount(PreviewWrapper, {
       global: {
         provide: {
-          isCollapsed: ref(true)
+          [isCollapsedKey as symbol]: ref(true)
         }
       }
     });
@@ -24,7 +25,7 @@ describe('preview wrapper', async () => {
     const wrapper = mount(PreviewWrapper, {
       global: {
         provide: {
-          inputValue: ref('# header')
+          [inputValueKey as symbol]: ref('# header')
         }
       }
     });
@@ -36,7 +37,7 @@ describe('preview wrapper', async () => {
     const wrapper = mount(PreviewWrapper, {
       global: {
         provide: {
-          inputValue: ref('**Bold**')
+          [inputValueKey as symbol]: ref('**Bold**')
         }
       }
     });
@@ -48,7 +49,7 @@ describe('preview wrapper', async () => {
     const wrapper = mount(PreviewWrapper, {
       global: {
         provide: {
-          inputValue: ref('_italic_')
+          [inputValueKey as symbol]: ref('_italic_')
         }
       }
     });
@@ -60,7 +61,7 @@ describe('preview wrapper', async () => {
     const wrapper = mount(PreviewWrapper, {
       global: {
         provide: {
-          inputValue: ref('+ unorderedList')
+          [inputValueKey as symbol]: ref('+ unorderedList')
         }
       }
     });
@@ -73,7 +74,7 @@ describe('preview wrapper', async () => {
     const wrapper = mount(PreviewWrapper, {
       global: {
         provide: {
-          inputValue: ref('1. 2')
+          [inputValueKey as symbol]: ref('1. 2')
         }
       }
     });
@@ -86,7 +87,7 @@ describe('preview wrapper', async () => {
     const wrapper = mount(PreviewWrapper, {
       global: {
         provide: {
-          inputValue: ref('[link](link.com)')
+          [inputValueKey as symbol]: ref('[link](link.com)')
         }
       }
     });
@@ -98,7 +99,7 @@ describe('preview wrapper', async () => {
     const wrapper = mount(PreviewWrapper, {
       global: {
         provide: {
-          inputValue: ref('![img](img.com)')
+          [inputValueKey as symbol]: ref('![img](img.com)')
         }
       }
     });
@@ -110,7 +111,7 @@ describe('preview wrapper', async () => {
     const wrapper = mount(PreviewWrapper, {
       global: {
         provide: {
-          inputValue: ref('`code`')
+          [inputValueKey as symbol]: ref('`code`')
         }
       }
     });
@@ -122,7 +123,7 @@ describe('preview wrapper', async () => {
     const wrapper = mount(PreviewWrapper, {
       global: {
         provide: {
-          inputValue: ref('```\ncode```')
+          [inputValueKey as symbol]: ref('```\ncode```')
         }
       }
     });

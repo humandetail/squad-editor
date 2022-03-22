@@ -9,11 +9,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref, Ref } from 'vue';
+import { computed, inject, ref } from 'vue';
 import markdown from '../../../utils/markdownIt';
+import { isCollapsedKey, inputValueKey } from '../../../config/provideKeys';
 
-const isCollapsed = inject<Ref<boolean>>('isCollapsed', ref(false));
-const inputValue = inject<Ref<string>>('inputValue', ref(''));
+const isCollapsed = inject(isCollapsedKey, ref(false));
+const inputValue = inject(inputValueKey, ref(''));
 
 const wrapperStyle = computed(() => {
   return {
