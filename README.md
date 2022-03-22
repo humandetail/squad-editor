@@ -70,8 +70,6 @@ const state = rective({
 </script>
 ```
 
-Refer to [functions list](https://vueuse.org/functions) or [documentations](https://vueuse.org/) for more details.
-
 ## 📄 License
 
 [MIT License](https://github.com/humandetail/squad-editor/blob/main/LICENSE) © 2019-PRESENT [Humandetail](https://github.com/humandetail)
