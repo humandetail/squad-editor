@@ -19,7 +19,7 @@ jobs:
         run: yarn # 安装依赖
 
       - name: Build
-        run: yarn build # 打包
+        run: yarn build:main # 打包
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
