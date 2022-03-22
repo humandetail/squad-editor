@@ -41,6 +41,7 @@ specifiers:
   markdown-it-sup: ^1.0.0
   markdown-it-task-lists: ^2.1.1
   markdown-it-toc-done-right: ^4.2.0
+  rimraf: ^3.0.2
   sass: ^1.49.9
   tslib: ^2.3.1
   typescript: ^4.4.3
@@ -50,6 +51,7 @@ specifiers:
   vue: ^3.2.16
   vue-eslint-parser: ^8.3.0
   vue-tsc: ^0.3.0
+  yarn: ^1.22.18
 
 dependencies:
   '@types/markdown-it': 12.2.3
@@ -96,6 +98,7 @@ devDependencies:
   happy-dom: 2.49.0
   husky: 7.0.4
   lint-staged: 12.3.7
+  rimraf: 3.0.2
   sass: 1.49.9
   tslib: 2.3.1
   typescript: 4.6.2
@@ -103,6 +106,7 @@ devDependencies:
   vitest: 0.6.3_4f3549caa723ca43584cc0a25a08a43c
   vue-eslint-parser: 8.3.0_eslint@8.11.0
   vue-tsc: 0.3.0_typescript@4.6.2
+  yarn: 1.22.18
 
 packages:
 
@@ -4784,6 +4788,13 @@ packages:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 21.0.1
+    dev: true
+
+  /yarn/1.22.18:
+    resolution: {integrity: sha512-oFffv6Jp2+BTUBItzx1Z0dpikTX+raRdqupfqzeMKnoh7WD6RuPAxcqDkMUy9vafJkrB0YaV708znpuMhEBKGQ==}
+    engines: {node: '>=4.0.0'}
+    hasBin: true
+    requiresBuild: true
     dev: true
 
   /yn/3.1.1:
